@@ -1459,3 +1459,32 @@ nav a{
     transform:scale(1.05);
 
 }
+
+/* ==========================
+   HERO MOBILE
+========================== */
+
+@media (max-width:768px){
+
+    .hero{
+
+        min-height:100svh;
+
+    }
+
+}
+
+    .hero{
+
+        background-image:url("images/hero-mobile.png");
+
+        background-size:cover;
+
+        background-position:center top;
+
+        min-height:100vh;
+
+        padding:40px 20px;
+
+    }
+
