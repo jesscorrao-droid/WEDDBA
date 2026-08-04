@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Addio al Celibato</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    background:#000;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    height:100vh;
+
+}
+
+img{
+
+    width:100vw;
+    height:100vh;
+
+    object-fit:contain;
+
+}
+
+.back{
+
+    position:fixed;
+
+    top:20px;
+    left:20px;
+
+    z-index:100;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-family:Arial, sans-serif;
+
+    background:rgba(0,0,0,.5);
+
+    padding:12px 20px;
+
+    border-radius:30px;
+
+    transition:.3s;
+
+}
+
+.back:hover{
+
+    background:rgba(255,255,255,.2);
+
+}
+
+#controls{
+
+    position:fixed;
+
+    bottom:30px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    display:flex;
+
+    gap:20px;
+
+    align-items:center;
+
+    z-index:100;
+
+}
+
+#controls button{
+
+    width:60px;
+
+    height:60px;
+
+    border:none;
+
+    border-radius:50%;
+
+    font-size:30px;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,.25);
+
+    color:white;
+
+    backdrop-filter:blur(10px);
+
+    transition:.3s;
+
+}
+
+#controls button:hover{
+
+    background:rgba(255,255,255,.45);
+
+}
+
+#counter{
+
+    font-size:22px;
+
+    font-family:Montserrat,sans-serif;
+
+    color:white;
+
+    min-width:90px;
+
+    text-align:center;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<a class="back" href="photos.html">← Torna agli album</a>
+
+<img id="photo" src="" alt="">
+
+<div id="controls">
+
+    <button id="prev">⟨</button>
+
+    <span id="counter"></span>
+
+    <button id="next">⟩</button>
+
+</div>
+
+<script src="celibato.js"></script>
+
+</body>
+
+</html>

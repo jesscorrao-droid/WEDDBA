@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>WeddBA Player</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+body{
+
+    margin:0;
+    background:#071224;
+    color:white;
+    font-family:Montserrat,sans-serif;
+    overflow-x:hidden;
+
+}
+
+.player-container{
+
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+
+}
+
+iframe{
+
+    width:100%;
+    aspect-ratio:16/9;
+
+    border:none;
+    border-radius:20px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.5);
+
+}
+
+.back-home{
+
+    text-align:center;
+    margin:40px 0;
+
+}
+
+.back-btn{
+
+    display:inline-block;
+
+    padding:16px 34px;
+
+    background:#ff8a00;
+    color:#071224;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    border-radius:50px;
+
+    transition:.25s;
+
+}
+
+.back-btn:hover{
+
+    transform:scale(1.05);
+
+    opacity:.95;
+
+}
+
+.back-btn:focus{
+
+    outline:4px solid #ffd54a;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="player-container">
+
+    <iframe
+        id="player"
+        allow="autoplay; fullscreen"
+        allowfullscreen>
+    </iframe>
+
+</div>
+
+<div class="back-home">
+
+    <a
+        id="backButton"
+        href="index.html"
+        class="back-btn">
+
+        ← Torna a WeddBA
+
+    </a>
+
+</div>
+
+<script>
+
+// ===============================
+// VIDEO
+// ===============================
+
+const params = new URLSearchParams(window.location.search);
+
+const video = params.get("video");
+
+const player = document.getElementById("player");
+
+if(video){
+
+    player.src =
+    `https://www.youtube.com/embed/${video}?autoplay=1&rel=0&playsinline=1`;
+
+}
+
+// ===============================
+// TORNA ALLA HOME
+// ===============================
+
+function goHome(){
+
+    window.location.href = "index.html";
+
+}
+
+// ===============================
+// TASTI
+// ===============================
+
+document.addEventListener("keydown",(e)=>{
+
+    const backKeys=[
+
+        "Escape",
+        "Backspace",
+        "BrowserBack",
+        "GoBack"
+
+    ];
+
+    if(backKeys.includes(e.key)){
+
+        e.preventDefault();
+
+        goHome();
+
+    }
+
+});
+
+// ===============================
+// DOPPIO CLICK TELECOMANDO
+// ===============================
+
+window.addEventListener("popstate",goHome);
+
+// ===============================
+// FOCUS SUL PULSANTE
+// ===============================
+
+window.addEventListener("load",()=>{
+
+    document.getElementById("backButton").blur();
+
+});
+
+</script>
+
+</body>
+
+</html>
