@@ -1400,3 +1400,62 @@ nav a{
     transform:translateX(-4px);
 
 }
+
+
+#install-banner{
+
+    position:fixed;
+
+    left:20px;
+
+    right:20px;
+
+    bottom:20px;
+
+    background:#081528;
+
+    border:2px solid #ff9800;
+
+    border-radius:18px;
+
+    padding:18px 22px;
+
+    display:none;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    color:white;
+
+    z-index:99999;
+
+    box-shadow:0 0 30px rgba(255,153,0,.35);
+
+}
+
+#install-btn{
+
+    background:#ff9800;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 22px;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#install-btn:hover{
+
+    transform:scale(1.05);
+
+}

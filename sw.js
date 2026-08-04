@@ -1,50 +1,62 @@
-const CACHE_NAME = "weddba-v1";
+const CACHE = "weddba-v1.0.0";
 
 const FILES = [
 
-"/WEDDBA/",
-"/WEDDBA/index.html",
-"/WEDDBA/style.css",
-"/WEDDBA/script.js",
-"/WEDDBA/data.js",
-"/WEDDBA/manifest.json"
+"./",
+"./index.html",
+"./style.css",
+"./script.js",
+"./data.js",
+"./manifest.json",
+
+"./photos.html",
+"./photos.css",
+"./photos.js",
+
+"./picture.html",
+"./picture.css",
+"./picture.js",
+
+"./halftime.html",
+"./halftime.css",
+
+"./celibato.html",
+"./celibato.js",
+
+"./nubilato.html",
+"./nubilato.js",
+
+"./player.html"
 
 ];
 
-self.addEventListener("install", event => {
-
-    event.waitUntil(
-
-        caches.open(CACHE_NAME)
-            .then(cache => cache.addAll(FILES))
-
-    );
+self.addEventListener("install",event=>{
 
     self.skipWaiting();
 
+    event.waitUntil(
+
+        caches.open(CACHE).then(cache=>cache.addAll(FILES))
+
+    );
+
 });
 
-self.addEventListener("activate", event => {
+self.addEventListener("activate",event=>{
 
     event.waitUntil(
 
-        caches.keys().then(keys =>
+        caches.keys().then(keys=>{
 
-            Promise.all(
+            return Promise.all(
 
-                keys.map(key => {
+                keys.filter(key=>key!==CACHE)
 
-                    if(key !== CACHE_NAME){
+                .map(key=>caches.delete(key))
 
-                        return caches.delete(key);
+            );
 
-                    }
-
-                })
-
-            )
-
-        )
+        })
 
     );
 
@@ -52,13 +64,13 @@ self.addEventListener("activate", event => {
 
 });
 
-self.addEventListener("fetch", event => {
+self.addEventListener("fetch",event=>{
 
     event.respondWith(
 
         caches.match(event.request)
 
-        .then(response => response || fetch(event.request))
+        .then(response=>response || fetch(event.request))
 
     );
 
