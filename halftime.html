@@ -3,80 +3,141 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>WeddBA - Halftime</title>
+    <title>WeddBA | Halftime</title>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="halftime.css">
 
 </head>
 
 <body>
 
-<section class="categories">
+<!-- ==========================
+        HALFTIME HEADER
+========================== -->
 
-    <h2>HALFTIME</h2>
+<section class="halftime-header">
 
-    <div class="cards-grid">
+    <div class="scoreboard">
 
-      <div class="category" onclick="location.href='player.html?video=wRPeNcz0wUs'">
+        <span class="scoreboard-label">
 
-    <img src="images/SKILLS.jpg">
+            Wedding Basketball Association
 
-    <div class="category-content">
-        <h3>SKILLS CHALLENGE</h3>
-    </div>
+        </span>
 
-</div>
+        <h1>HALFTIME</h1>
 
-  <div class="category" onclick="location.href='player.html?video=c78Mq4kz3Ek'">
-
-    <img src="images/HALFTIME2.jpg">
-
-    <div class="play-icon">
-        ▶
-    </div>
-
-    <div class="category-content">
-
-        <h3>COOLING BREAK</h3>
-
-    </div>
-
-</div>
-
-  <div class="category" onclick="location.href='player.html?video=pFRvp_ggFIU'">
-
-    <img src="images/prova.png" alt="Halftime">
-
-    <div class="category-content">
-        <h3>BUBBLE MADNESS</h3>
-    </div>
-
-</div>
+        <p>The Arena Never Sleeps</p>
 
     </div>
 
 </section>
 
+<!-- ==========================
+        HALFTIME CONTENT
+========================== -->
+
+<section class="categories halftime-content">
+
+    <div class="cards-grid">
+
+        <!-- Skills Challenge -->
+
+        <div class="category"
+             onclick="window.location.href='player.html?video=wRPeNcz0wUs'">
+
+            <img src="images/SKILLS.jpg" alt="Skills Challenge">
+
+            <div class="category-content">
+
+                <h3>SKILLS CHALLENGE</h3>
+
+            </div>
+
+        </div>
+
+        <!-- Cooling Break -->
+
+        <div class="category"
+             onclick="window.location.href='player.html?video=c78Mq4kz3Ek'">
+
+            <img src="images/HALFTIME2.jpg" alt="Cooling Break">
+
+            <div class="play-icon">
+
+                ▶
+
+            </div>
+
+            <div class="category-content">
+
+                <h3>COOLING BREAK</h3>
+
+            </div>
+
+        </div>
+
+        <!-- Bubble Madness -->
+
+        <div class="category"
+             onclick="window.location.href='player.html?video=pFRvp_ggFIU'">
+
+            <img src="images/prova.png" alt="Bubble Madness">
+
+            <div class="category-content">
+
+                <h3>BUBBLE MADNESS</h3>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ==========================
+        HOME BUTTON
+========================== -->
+
 <div class="back-home">
 
-    <button class="home-button" onclick="window.location.href='index.html'">
+    <button class="home-button"
+            onclick="goHome()">
+
         ← Torna alla Home
+
     </button>
 
 </div>
 
+<!-- ==========================
+        KEYBOARD
+========================== -->
+
 <script>
 
-document.addEventListener("keydown",(e)=>{
+function goHome(){
 
-    if(e.key==="Backspace" || e.key==="Escape"){
+    window.location.href = "index.html";
 
-        e.preventDefault();
+}
 
-        window.location.href="index.html";
+document.addEventListener("keydown", function(e){
+
+    switch(e.key){
+
+        case "Escape":
+
+            e.preventDefault();
+
+            goHome();
+
+            break;
 
     }
 
