@@ -1,0 +1,241 @@
+/* =====================================================
+   WEDDBA
+   PARTE 5 - RESPONSIVE
+===================================================== */
+
+
+/* =====================================================
+   DESKTOP LARGE
+===================================================== */
+
+@media(max-width:1400px){
+
+    .hero-title{
+
+        font-size:92px;
+
+    }
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1200px){
+
+    .cards-grid{
+
+        grid-template-columns:repeat(2,minmax(0,1fr));
+
+    }
+
+    .large-card{
+
+        grid-column:span 2;
+
+    }
+
+}
+
+
+/* =====================================================
+   TABLET PICCOLI
+===================================================== */
+
+@media(max-width:900px){
+
+    #header{
+
+        padding:0 30px;
+
+    }
+
+    nav{
+
+        gap:20px;
+
+    }
+
+    .hero{
+
+        padding:0 6% 90px;
+
+    }
+
+    .hero-title{
+
+        font-size:72px;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:28px;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMARTPHONE
+===================================================== */
+
+@media(max-width:768px){
+
+    .hero{
+
+        background-image:url("../images/hero-mobile.png");
+
+        background-size:cover;
+
+        background-position:center top;
+
+        min-height:100svh;
+
+        padding:35px 20px;
+
+    }
+
+    .hero-content{
+
+        max-width:100%;
+
+    }
+
+    .hero-title{
+
+        font-size:56px;
+
+    }
+
+    .hero-date{
+
+        font-size:20px;
+
+        letter-spacing:2px;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:20px;
+
+    }
+
+    .hero-button{
+
+        width:100%;
+
+    }
+
+}
+
+
+/* =====================================================
+   TELEFONI
+===================================================== */
+
+@media(max-width:700px){
+
+    .cards-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .large-card{
+
+        grid-column:auto;
+
+    }
+
+}
+
+
+/* =====================================================
+   SMARTPHONE PICCOLI
+===================================================== */
+
+@media(max-width:650px){
+
+    #header{
+
+        height:75px;
+
+        padding:0 20px;
+
+    }
+
+    .logo img{
+
+        width:80px;
+
+        height:80px;
+
+    }
+
+    nav{
+
+        display:none;
+
+    }
+
+    .categories{
+
+        padding:70px 20px;
+
+    }
+
+    .section-title-custom{
+
+        font-size:34px;
+
+    }
+
+    .footer{
+
+        flex-direction:column;
+
+        text-align:center;
+
+    }
+
+}
+
+
+/* =====================================================
+   iPHONE SE
+===================================================== */
+
+@media(max-width:390px){
+
+    .hero-title{
+
+        font-size:46px;
+
+    }
+
+    .hero-date{
+
+        font-size:18px;
+
+    }
+
+    .hero-subtitle{
+
+        font-size:18px;
+
+    }
+
+    .hero-button{
+
+        padding:16px;
+
+        font-size:16px;
+
+    }
+
+}

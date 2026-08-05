@@ -1,0 +1,48 @@
+/* ==========================
+   FOOTER
+========================== */
+
+.footer{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:18px;
+
+    padding:45px 8%;
+
+    margin-top:90px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.footer-logo{
+
+    width:46px !important;
+
+    height:auto;
+
+    display:block;
+
+    flex-shrink:0;
+
+}
+
+.footer-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.footer-text p{
+
+    margin:0;
+
+    color:rgba(255,255,255,.7);
+
+    font-size:15px;
+
+}

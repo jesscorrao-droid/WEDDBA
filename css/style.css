@@ -1,0 +1,1200 @@
+/* =====================================================
+   WEDDBA
+   PARTE 1 - RESET / ROOT / BODY
+===================================================== */
+
+
+/* ==========================
+   RESET
+========================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+    height:100%;
+
+}
+
+
+/* ==========================
+   VARIABILI
+========================== */
+
+:root{
+
+    --background:#071224;
+
+    --surface:#0d1b33;
+
+    --card:#122542;
+
+    --card2:#173154;
+
+    --orange:#ff7a00;
+
+    --orange-light:#ff9c3d;
+
+    --gold:#ffc64d;
+
+    --white:#ffffff;
+
+    --text:#d8dde8;
+
+    --radius:22px;
+
+    --shadow:0 15px 45px rgba(0,0,0,.35);
+
+    --transition:.35s;
+
+}
+
+
+/* ==========================
+   BODY
+========================== */
+
+body{
+
+    font-family:'Montserrat',sans-serif;
+
+    color:var(--white);
+
+    background:
+
+        repeating-linear-gradient(
+
+            90deg,
+
+            rgba(255,255,255,.012) 0,
+
+            rgba(255,255,255,.012) 2px,
+
+            transparent 2px,
+
+            transparent 120px
+
+        ),
+
+        repeating-linear-gradient(
+
+            0deg,
+
+            rgba(255,255,255,.018) 0,
+
+            rgba(255,255,255,.018) 1px,
+
+            transparent 1px,
+
+            transparent 70px
+
+        ),
+
+        radial-gradient(
+
+            circle at top,
+
+            rgba(255,170,60,.03),
+
+            transparent 65%
+
+        ),
+
+        var(--background);
+
+    overflow-x:hidden;
+
+    overflow-y:auto;
+
+    overscroll-behavior-y:none;
+
+    -webkit-overflow-scrolling:touch;
+
+    min-height:100%;
+
+}
+
+
+/* Desktop */
+
+@media(min-width:769px){
+
+body{
+
+    background-attachment:fixed;
+
+}
+
+}
+
+
+/* Mobile */
+
+@media(max-width:768px){
+
+body{
+
+    background-attachment:scroll;
+
+}
+
+}
+
+
+/* ==========================
+   EFFETTI SFONDO
+========================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(255,140,0,.05),
+
+            transparent 70%
+
+        );
+
+    z-index:-2;
+
+}
+
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:.05;
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            transparent 0,
+
+            transparent 180px,
+
+            rgba(255,255,255,.7) 182px,
+
+            transparent 184px
+
+        ),
+
+        linear-gradient(
+
+            rgba(255,255,255,.6),
+
+            rgba(255,255,255,.6)
+
+        );
+
+    background-repeat:no-repeat;
+
+    background-position:center center;
+
+    background-size:380px 380px,2px 100%;
+
+    z-index:-1;
+
+}
+
+
+/* ==========================
+   SELEZIONE TESTO
+========================== */
+
+::selection{
+
+    background:var(--orange);
+
+    color:#fff;
+
+}
+
+
+/* ==========================
+   SCROLLBAR
+========================== */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#071224;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:linear-gradient(
+
+        180deg,
+
+        var(--orange),
+
+        var(--orange-light)
+
+    );
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:var(--orange-light);
+
+}
+
+
+/* ==========================
+   TRANSIZIONI GLOBALI
+========================== */
+
+button{
+
+    font-family:'Montserrat',sans-serif;
+
+}
+
+button{
+
+    transition:var(--transition);
+
+}
+
+/* =====================================================
+   WEDDBA
+   PARTE 2 - HEADER
+===================================================== */
+
+
+/* ==========================
+   HEADER
+========================== */
+
+#header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+    right:0;
+
+    height:90px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 45px;
+
+    background:linear-gradient(
+        to bottom,
+        rgba(7,18,36,.92),
+        rgba(7,18,36,0)
+    );
+
+    z-index:999;
+
+    transition:.35s;
+
+}
+
+#header.scrolled{
+
+    background:rgba(7,18,36,.96);
+
+    backdrop-filter:blur(14px);
+
+}
+
+
+/* ==========================
+   LOGO
+========================== */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.logo img{
+
+    width:100px;
+
+    height:100px;
+
+    display:block;
+
+}
+
+
+/* ==========================
+   NAV
+========================== */
+
+nav{
+
+    display:flex;
+
+    gap:36px;
+
+}
+
+nav a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    position:relative;
+
+    transition:.35s;
+
+}
+
+nav a:hover{
+
+    color:var(--orange);
+
+}
+
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-8px;
+
+    width:0;
+
+    height:2px;
+
+    background:var(--orange);
+
+    transition:.35s;
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:900px){
+
+    #header{
+
+        padding:0 30px;
+
+    }
+
+    nav{
+
+        gap:20px;
+
+    }
+
+}
+
+@media(max-width:650px){
+
+    #header{
+
+        height:75px;
+
+        padding:0 20px;
+
+    }
+
+    .logo img{
+
+        width:80px;
+
+        height:80px;
+
+    }
+
+    nav{
+
+        display:none;
+
+    }
+
+}
+
+/* =====================================================
+   WEDDBA
+   PARTE 3 - HERO
+===================================================== */
+
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+
+    position:relative;
+
+    min-height:100svh;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:0 8% 120px;
+
+    background:
+
+        url("../images/hero.png")
+
+        center center / cover
+
+        no-repeat;
+
+    overflow:hidden;
+
+}
+
+
+/* ==========================
+   OVERLAY
+========================== */
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            90deg,
+
+            rgba(7,18,36,.95) 0%,
+
+            rgba(7,18,36,.75) 45%,
+
+            rgba(7,18,36,.25) 75%,
+
+            rgba(7,18,36,.05) 100%
+
+        ),
+
+        linear-gradient(
+
+            180deg,
+
+            transparent,
+
+            rgba(7,18,36,.92)
+
+        );
+
+}
+
+
+/* ==========================
+   CONTENUTO
+========================== */
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:720px;
+
+}
+
+
+/* ==========================
+   BADGE
+========================== */
+
+.league{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:10px 22px;
+
+    border-radius:999px;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+/* ==========================
+   DATA
+========================== */
+
+.hero-date{
+
+    margin:24px 0 28px;
+
+    color:var(--orange);
+
+    font-size:34px;
+
+    font-weight:700;
+
+    letter-spacing:4px;
+
+}
+
+
+/* ==========================
+   TITOLO
+========================== */
+
+.hero-title{
+
+    font-family:'Anton',sans-serif;
+
+    font-size:clamp(100px,11vw,180px);
+
+    line-height:.9;
+
+    letter-spacing:-4px;
+
+}
+
+.hero-title .w,
+.hero-title .edd{
+
+    color:#fff;
+
+}
+
+.hero-title .ba{
+
+    color:var(--orange);
+
+}
+
+
+/* ==========================
+   SOTTOTITOLO
+========================== */
+
+.hero-subtitle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    margin-top:22px;
+
+    font-size:34px;
+
+    font-weight:300;
+
+}
+
+.hero-subtitle .ball{
+
+    font-size:34px;
+
+}
+
+
+/* ==========================
+   BOTTONE
+========================== */
+
+.hero-button{
+
+    margin-top:42px;
+
+    padding:18px 42px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            var(--orange),
+
+            var(--orange-light)
+
+        );
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:700;
+
+    box-shadow:
+
+        0 14px 30px rgba(255,122,0,.35);
+
+}
+
+.hero-button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+        0 22px 45px rgba(255,122,0,.45);
+
+}
+
+
+/* ==========================
+   ANIMAZIONI
+========================== */
+
+.hero-content>*{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    animation:fadeUp .8s forwards;
+
+}
+
+.hero-content .league{animation-delay:.1s;}
+
+.hero-content .hero-date{animation-delay:.25s;}
+
+.hero-content .hero-title{animation-delay:.45s;}
+
+.hero-content .hero-subtitle{animation-delay:.65s;}
+
+.hero-content .hero-button{animation-delay:.9s;}
+
+
+@keyframes fadeUp{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+/* =====================================================
+   HERO TABLET
+===================================================== */
+
+@media(max-width:900px){
+
+.hero{
+
+    padding:0 6% 90px;
+
+}
+
+.hero-title{
+
+    font-size:72px;
+
+}
+
+.hero-subtitle{
+
+    font-size:28px;
+
+}
+
+}
+
+
+/* =====================================================
+   HERO MOBILE
+===================================================== */
+
+@media(max-width:768px){
+
+.hero{
+
+    background-image:url("../images/hero-mobile.png");
+
+    background-size:cover;
+
+    background-position:center top;
+
+    min-height:100svh;
+
+    padding:35px 20px;
+
+}
+
+.hero-content{
+
+    max-width:100%;
+
+}
+
+.hero-date{
+
+    font-size:20px;
+
+    letter-spacing:2px;
+
+}
+
+.hero-title{
+
+    font-size:54px;
+
+}
+
+.hero-subtitle{
+
+    font-size:20px;
+
+}
+
+.hero-button{
+
+    width:100%;
+
+}
+
+}
+
+/* =====================================================
+   WEDDBA
+   PARTE 4 - CARDS
+===================================================== */
+
+
+/* ==========================
+   SEZIONI
+========================== */
+
+.categories{
+
+    padding:90px 8%;
+
+}
+
+.season-section{
+
+    margin-bottom:90px;
+
+}
+
+.season-section:last-child{
+
+    margin-bottom:30px;
+
+}
+
+
+/* ==========================
+   TITOLI
+========================== */
+
+.section-title-custom{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:35px;
+
+    font-family:'Anton',sans-serif;
+
+    font-size:46px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#fff;
+
+}
+
+
+/* ==========================
+   GRIGLIA
+========================== */
+
+.cards-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,minmax(0,1fr));
+
+    gap:30px;
+
+    align-items:stretch;
+
+}
+
+
+/* ==========================
+   CARD
+========================== */
+
+.category{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    background:#111;
+
+    border:2px solid rgba(255,255,255,.08);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.35);
+
+    cursor:pointer;
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+
+}
+
+.category:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--orange);
+
+    box-shadow:0 25px 45px rgba(0,0,0,.45);
+
+}
+
+
+/* ==========================
+   IMMAGINE
+========================== */
+
+.category img{
+
+    width:100%;
+
+    height:240px;
+
+    display:block;
+
+    object-fit:cover;
+
+    transition:
+        transform .45s ease,
+        filter .45s ease;
+
+}
+
+.category:hover img{
+
+    transform:scale(1.08);
+
+    filter:brightness(.9);
+
+}
+
+
+/* ==========================
+   OVERLAY
+========================== */
+
+.category::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        linear-gradient(
+
+            transparent 35%,
+
+            rgba(0,0,0,.85)
+
+        );
+
+}
+
+
+/* ==========================
+   TESTO
+========================== */
+
+.category-content{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    padding:24px;
+
+    z-index:2;
+
+}
+
+.category-content h3{
+
+    font-family:'Anton',sans-serif;
+
+    font-size:30px;
+
+    letter-spacing:1px;
+
+    margin-bottom:6px;
+
+}
+
+.card-subtitle{
+
+    color:#e5e5e5;
+
+    font-size:15px;
+
+    line-height:1.4;
+
+}
+
+
+/* ==========================
+   PLAY
+========================== */
+
+.play-icon{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:translate(-50%,-50%) scale(.8);
+
+    width:72px;
+    height:72px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.55);
+
+    backdrop-filter:blur(10px);
+
+    color:#fff;
+
+    font-size:34px;
+
+    opacity:0;
+
+    transition:.3s;
+
+    z-index:5;
+
+}
+
+.category:hover .play-icon{
+
+    opacity:1;
+
+    transform:translate(-50%,-50%) scale(1);
+
+}
+
+
+/* ==========================
+   FOCUS TV
+========================== */
+
+.category.focused{
+
+    transform:scale(1.05);
+
+    border:3px solid var(--gold);
+
+    z-index:20;
+
+    box-shadow:
+
+        0 0 20px rgba(255,198,77,.55),
+
+        0 0 45px rgba(255,198,77,.30),
+
+        0 25px 55px rgba(0,0,0,.55);
+
+    animation:glow .9s infinite alternate;
+
+}
+
+.category.focused img{
+
+    transform:scale(1.08);
+
+}
+
+.category.focused .play-icon{
+
+    opacity:1;
+
+    transform:translate(-50%,-50%) scale(1);
+
+}
+
+
+/* ==========================
+   LARGE CARD
+========================== */
+
+.large-card{
+
+    grid-column:span 3;
+
+}
+
+.large-card img{
+
+    height:340px;
+
+}
+
+
+/* ==========================
+   ANIMAZIONI
+========================== */
+
+@keyframes glow{
+
+    from{
+
+        box-shadow:
+
+            0 0 12px rgba(255,198,77,.35),
+
+            0 20px 40px rgba(0,0,0,.45);
+
+    }
+
+    to{
+
+        box-shadow:
+
+            0 0 35px rgba(255,198,77,.8),
+
+            0 25px 55px rgba(0,0,0,.55);
+
+    }
+
+}
+
+.fadeUp{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:.7s;
+
+}
+
+.fadeUp.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
