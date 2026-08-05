@@ -12,10 +12,12 @@ body{
 ========================== */
 
 .halftime-header{
+
     width:100%;
     display:flex;
     justify-content:center;
     margin:60px 0 70px;
+
 }
 
 .scoreboard{
@@ -26,7 +28,7 @@ body{
 
     border:3px solid #ff9800;
 
-    border-radius:22px;
+    border-radius:24px;
 
     padding:35px 40px;
 
@@ -83,7 +85,7 @@ body{
 }
 
 /* ==========================
-   CARDS
+   CONTENT
 ========================== */
 
 .halftime-content{
@@ -92,9 +94,13 @@ body{
 
     max-width:1400px;
 
-    margin:auto;
+    margin:0 auto;
 
 }
+
+/* ==========================
+   GRID
+========================== */
 
 .halftime-content .cards-grid{
 
@@ -106,19 +112,27 @@ body{
 
 }
 
-.halftime-content .category{
-
-    width:100%;
-
-}
+/* ==========================
+   CARD GRANDE
+========================== */
 
 .halftime-content .category:last-child{
 
     grid-column:1 / span 2;
 
+    max-width:520px;
+
     justify-self:center;
 
-    max-width:520px;
+}
+
+/* ==========================
+   CARD
+========================== */
+
+.halftime-content .category{
+
+    width:100%;
 
 }
 
@@ -131,6 +145,36 @@ body{
     margin:70px 0;
 
     text-align:center;
+
+}
+
+.home-button{
+
+    padding:15px 32px;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:#ff9800;
+
+    color:#081528;
+
+    font-weight:700;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.home-button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 12px 30px rgba(255,153,0,.35);
 
 }
 
