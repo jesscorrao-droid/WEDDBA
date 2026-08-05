@@ -1,0 +1,45 @@
+/* =====================================================
+   WEDDBA
+   HEADER
+===================================================== */
+
+#header{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    padding:20px 5%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    z-index:1000;
+
+    transition:.35s;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.logo img{
+
+    width:90px;
+
+    height:auto;
+
+    display:block;
+
+}

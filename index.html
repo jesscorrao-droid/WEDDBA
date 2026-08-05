@@ -8,9 +8,7 @@
 
     <title>WeddBA | Chiara & Dario</title>
 
-    <!-- ==========================
-         PWA
-    =========================== -->
+    <!-- PWA -->
 
     <link rel="manifest" href="manifest.json">
 
@@ -24,9 +22,7 @@
 
     <link rel="apple-touch-icon" href="images/icon-192.png">
 
-    <!-- ==========================
-         GOOGLE FONTS
-    =========================== -->
+    <!-- Google Fonts -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -34,9 +30,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- ==========================
-         CSS
-    =========================== -->
+    <!-- CSS -->
 
     <link rel="stylesheet" href="css/style.css">
 
@@ -48,185 +42,187 @@
 
     <link rel="stylesheet" href="css/footer.css">
 
-    <link rel="stylesheet" href="css/responsive.css">
-
     <link rel="stylesheet" href="css/pwa.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
 
 </head>
 
 <body>
 
-<!-- ==========================
-     INSTALL APP
-========================== -->
+    <!-- ==========================
+         INSTALL APP
+    =========================== -->
 
-<div id="install-banner">
+    <div id="install-banner">
 
-    <div>
+        <div>
 
-        🏀 Installa <strong>WeddBA</strong> sul tuo telefono
-
-    </div>
-
-    <button id="install-btn">
-
-        Installa
-
-    </button>
-
-</div>
-
-<!-- ==========================
-     HEADER
-========================== -->
-
-<header id="header">
-
-    <div class="logo">
-
-        <img src="images/logo.png" alt="WeddBA">
-
-    </div>
-
-</header>
-
-<!-- ==========================
-     HERO
-========================== -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <span class="league">
-
-            WEDDING BASKETBALL ASSOCIATION
-
-        </span>
-
-        <div class="hero-date">
-
-            24 LUGLIO 2026
+            🏀 Installa <strong>WeddBA</strong> sul tuo telefono
 
         </div>
 
-        <h1 class="hero-title">
+        <button id="install-btn">
 
-            <span class="w">W</span><span class="edd">edd</span><span class="ba">BA</span>
-
-        </h1>
-
-        <p class="hero-subtitle">
-
-            <span class="ball">🏀</span>
-
-            A nostra immagine e somiglianza
-
-        </p>
-
-        <button class="hero-button">
-
-            ▶ GUARDA IL TRAILER
+            Installa
 
         </button>
 
     </div>
 
-</section>
+    <!-- ==========================
+         HEADER
+    =========================== -->
 
-<!-- ==========================
-     CATEGORIE
-========================== -->
+    <header id="header">
 
-<section id="categories" class="categories">
+        <div class="logo">
 
-    <div id="categoriesContainer"></div>
+            <img src="images/logo.png" alt="WeddBA">
 
-</section>
+        </div>
 
-<!-- ==========================
-     FOOTER
-========================== -->
+    </header>
 
-<footer class="footer">
+    <!-- ==========================
+         HERO
+    =========================== -->
 
-    <img src="images/logo.png"
+    <section class="hero">
 
-         class="footer-logo"
+        <div class="overlay"></div>
 
-         alt="WeddBA">
+        <div class="hero-content">
 
-    <div class="footer-text">
+            <span class="league">
 
-        <p>WeddBA · Wedding Basketball Association</p>
+                WEDDING BASKETBALL ASSOCIATION
 
-        <p>Chiara ❤️ Dario · 24 Luglio 2026</p>
+            </span>
 
-    </div>
+            <div class="hero-date">
 
-</footer>
+               6 GIUGNO 2026
 
-<!-- ==========================
-     SCRIPT
-========================== -->
+            </div>
 
-<script src="data.js"></script>
+            <h1 class="hero-title">
 
-<script src="script.js"></script>
+                <span class="w">W</span><span class="edd">edd</span><span class="ba">BA</span>
 
-<script src="install.js"></script>
+            </h1>
 
-<script>
+            <p class="hero-subtitle">
 
-window.addEventListener("load",()=>{
+                <span class="ball">🏀</span>
 
-    const target=sessionStorage.getItem("returnTo");
+                A nostra immagine e somiglianza
 
-    if(target){
+            </p>
 
-        setTimeout(()=>{
+            <button class="hero-button">
 
-            const card=document.getElementById(target);
+                ▶ GUARDA IL TRAILER
 
-            if(card){
+            </button>
 
-                card.scrollIntoView({
+        </div>
 
-                    behavior:"smooth",
+    </section>
 
-                    block:"center"
+    <!-- ==========================
+         CATEGORIE
+    =========================== -->
 
-                });
+    <section id="categories" class="categories">
 
-            }
+        <div id="categoriesContainer"></div>
 
-        },200);
+    </section>
 
-    }
+    <!-- ==========================
+         FOOTER
+    =========================== -->
 
-});
+    <footer class="footer">
 
-document.querySelector(".hero-button").addEventListener("click",()=>{
+        <img src="images/logo.png"
 
-    window.location.href="player.html?video=wLTiqjkjbIs";
+             class="footer-logo"
 
-});
+             alt="WeddBA">
 
-if("serviceWorker" in navigator){
+        <div class="footer-text">
+
+            <p>WeddBA · Wedding Basketball Association</p>
+
+            <p>Chiara ❤️ Dario · 6 giugno 2026</p>
+
+        </div>
+
+    </footer>
+
+    <!-- ==========================
+         JAVASCRIPT
+    =========================== -->
+
+    <script src="data.js"></script>
+
+    <script src="script.js"></script>
+
+    <script src="install.js"></script>
+
+    <script>
 
     window.addEventListener("load",()=>{
 
-        navigator.serviceWorker.register("./sw.js")
+        const target=sessionStorage.getItem("returnTo");
 
-        .then(()=>console.log("🏀 WeddBA Ready"))
+        if(target){
 
-        .catch(console.error);
+            setTimeout(()=>{
+
+                const card=document.getElementById(target);
+
+                if(card){
+
+                    card.scrollIntoView({
+
+                        behavior:"smooth",
+
+                        block:"center"
+
+                    });
+
+                }
+
+            },200);
+
+        }
 
     });
 
-}
+    document.querySelector(".hero-button").addEventListener("click",()=>{
 
-</script>
+        window.location.href="player.html?video=wLTiqjkjbIs";
+
+    });
+
+    if("serviceWorker" in navigator){
+
+        window.addEventListener("load",()=>{
+
+            navigator.serviceWorker.register("./sw.js")
+
+            .then(()=>console.log("🏀 WeddBA Ready"))
+
+            .catch(console.error);
+
+        });
+
+    }
+
+    </script>
 
 </body>
 

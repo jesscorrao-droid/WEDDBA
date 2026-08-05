@@ -1,0 +1,232 @@
+/* =====================================================
+   WEDDBA
+   CARDS
+===================================================== */
+
+
+/* ==========================
+   SEZIONI
+========================== */
+
+.categories{
+
+    padding:90px 6%;
+
+}
+
+.season-section{
+
+    margin-bottom:90px;
+
+}
+
+.section-title-custom{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:35px;
+
+    font-family:'Anton',sans-serif;
+
+    font-size:42px;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+/* ==========================
+   GRID
+========================== */
+
+.cards-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+
+    gap:28px;
+
+}
+
+
+/* ==========================
+   CARD
+========================== */
+
+.category{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:22px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    background:#111;
+
+}
+
+.category:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.45);
+
+}
+
+
+/* ==========================
+   IMMAGINE
+========================== */
+
+.category img{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.4s;
+
+}
+
+.category:hover img{
+
+    transform:scale(1.05);
+
+}
+
+
+/* ==========================
+   OVERLAY
+========================== */
+
+.category::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        transparent,
+
+        rgba(0,0,0,.85)
+
+    );
+
+}
+
+
+/* ==========================
+   TESTO
+========================== */
+
+.category-content{
+
+    position:absolute;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    z-index:2;
+
+    padding:22px;
+
+}
+
+.category-content h3{
+
+    font-family:'Anton',sans-serif;
+
+    font-size:30px;
+
+    letter-spacing:1px;
+
+    margin-bottom:6px;
+
+}
+
+.category-content p{
+
+    font-size:15px;
+
+    color:#ddd;
+
+}
+
+
+/* ==========================
+   PLAY
+========================== */
+
+.play-icon{
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:70px;
+
+    height:70px;
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.55);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:30px;
+
+    opacity:0;
+
+    transition:.3s;
+
+    z-index:3;
+
+}
+
+.category:hover .play-icon{
+
+    opacity:1;
+
+}
+
+
+/* ==========================
+   TV MODE
+========================== */
+
+.category.focused{
+
+    transform:scale(1.05);
+
+    border:3px solid var(--gold);
+
+}

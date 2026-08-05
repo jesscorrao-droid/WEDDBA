@@ -1,39 +1,25 @@
-let deferredPrompt = null;
+let deferredPrompt;
 
-window.addEventListener("beforeinstallprompt", (e) => {
+window.addEventListener("beforeinstallprompt",(e)=>{
 
     e.preventDefault();
 
-    deferredPrompt = e;
+    deferredPrompt=e;
 
-    const banner = document.getElementById("install-banner");
-
-    if (banner) {
-
-        banner.style.display = "flex";
-
-    }
+    document.getElementById("install-banner").style.display="flex";
 
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+document.getElementById("install-btn").addEventListener("click",async()=>{
 
-    const btn = document.getElementById("install-btn");
+    if(!deferredPrompt) return;
 
-    if (!btn) return;
+    deferredPrompt.prompt();
 
-    btn.addEventListener("click", async () => {
+    await deferredPrompt.userChoice;
 
-        if (!deferredPrompt) return;
+    deferredPrompt=null;
 
-        deferredPrompt.prompt();
-
-        await deferredPrompt.userChoice;
-
-        deferredPrompt = null;
-
-        document.getElementById("install-banner").style.display = "none";
-
-    });
+    document.getElementById("install-banner").style.display="none";
 
 });

@@ -1,0 +1,169 @@
+/* =====================================================
+   WEDDBA
+   HERO
+===================================================== */
+
+.hero{
+
+    position:relative;
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    padding:0 6% 100px;
+
+    overflow:hidden;
+
+    background:url("../images/hero.jpg") center center/cover no-repeat;
+
+}
+
+.overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+        to top,
+        rgba(7,18,36,.95),
+        rgba(7,18,36,.20),
+        rgba(7,18,36,.05)
+    );
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:700px;
+
+}
+
+.league{
+
+    display:inline-block;
+
+    margin-bottom:15px;
+
+    color:var(--orange);
+
+    font-size:15px;
+
+    letter-spacing:3px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+}
+
+.hero-date{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#fff;
+
+    letter-spacing:3px;
+
+    margin-bottom:15px;
+
+}
+
+.hero-title{
+
+    font-family:'Anton',sans-serif;
+
+    font-size:110px;
+
+    line-height:.9;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+
+}
+
+.hero-title .w{
+
+    color:#fff;
+
+}
+
+.hero-title .edd{
+
+    color:#fff;
+
+}
+
+.hero-title .ba{
+
+    color:var(--orange);
+
+}
+
+.hero-subtitle{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-size:28px;
+
+    margin-bottom:40px;
+
+}
+
+.ball{
+
+    font-size:32px;
+
+}
+
+.hero-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:18px 34px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:var(--orange);
+
+    color:#fff;
+
+    font-weight:700;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.hero-button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 10px 30px rgba(255,120,0,.35);
+
+}
