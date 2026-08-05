@@ -2,7 +2,7 @@
    WeddBA - Picture Of The Game
 ========================================= */
 
-const TOTAL_PHOTOS = 106;
+const TOTAL_PHOTOS = 96;
 
 const gallery = document.getElementById("gallery");
 const loading = document.getElementById("loading");
