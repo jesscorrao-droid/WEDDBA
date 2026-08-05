@@ -2,7 +2,7 @@
    WeddBA - Picture Of The Game
 ========================================= */
 
-const TOTAL_PHOTOS = 73;
+const TOTAL_PHOTOS = 106;
 
 const gallery = document.getElementById("gallery");
 const loading = document.getElementById("loading");
@@ -18,7 +18,7 @@ const counter = document.getElementById("counter");
 let current = 0;
 
 /* =========================================
-CREA GALLERY
+   CREA GALLERY
 ========================================= */
 
 function createGallery(){
@@ -55,7 +55,7 @@ function createGallery(){
 createGallery();
 
 /* =========================================
-LIGHTBOX
+   LIGHTBOX
 ========================================= */
 
 function openLightbox(){
@@ -91,7 +91,7 @@ lightbox.addEventListener("click", (e)=>{
 });
 
 /* =========================================
-NEXT
+   NEXT
 ========================================= */
 
 function nextPhoto(){
@@ -111,7 +111,7 @@ function nextPhoto(){
 nextBtn.addEventListener("click", nextPhoto);
 
 /* =========================================
-PREVIOUS
+   PREVIOUS
 ========================================= */
 
 function prevPhoto(){
@@ -131,10 +131,10 @@ function prevPhoto(){
 prevBtn.addEventListener("click", prevPhoto);
 
 /* =========================================
-KEYBOARD
+   KEYBOARD
 ========================================= */
 
-document.addEventListener("keydown",(e)=>{
+document.addEventListener("keydown", (e)=>{
 
     if(!lightbox.classList.contains("open")) return;
 
@@ -159,12 +159,30 @@ document.addEventListener("keydown",(e)=>{
 
 });
 
-document.addEventListener("keydown", e => {
+/* =========================================
+   SWIPE MOBILE
+========================================= */
 
-    if(e.key === "ArrowRight") nextPhoto();
+let startX = 0;
 
-    if(e.key === "ArrowLeft") prevPhoto();
+lightbox.addEventListener("touchstart", (e)=>{
 
-    if(e.key === "Escape") history.back();
+    startX = e.touches[0].clientX;
+
+});
+
+lightbox.addEventListener("touchend", (e)=>{
+
+    const endX = e.changedTouches[0].clientX;
+
+    if(endX - startX > 50){
+
+        prevPhoto();
+
+    }else if(startX - endX > 50){
+
+        nextPhoto();
+
+    }
 
 });
