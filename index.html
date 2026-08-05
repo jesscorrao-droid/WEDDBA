@@ -3,18 +3,30 @@
 
 <head>
 
-    
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>WeddBA | Chiara & Dario</title>
 
-    <meta name="theme-color" content="#081528">
+    <!-- ==========================
+         PWA
+    =========================== -->
 
     <link rel="manifest" href="manifest.json">
 
-    <link rel="stylesheet" href="style.css">
+    <meta name="theme-color" content="#081528">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="apple-mobile-web-app-title" content="WeddBA">
+
+    <link rel="apple-touch-icon" href="images/icon-192.png">
+
+    <!-- ==========================
+         GOOGLE FONTS
+    =========================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -22,22 +34,31 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="manifest" href="manifest.json">
+    <!-- ==========================
+         CSS
+    =========================== -->
 
-<meta name="theme-color" content="#081528">
+    <link rel="stylesheet" href="css/style.css">
 
-<meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/header.css">
 
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="css/hero.css">
 
-<meta name="apple-mobile-web-app-title" content="WeddBA">
+    <link rel="stylesheet" href="css/cards.css">
 
-<link rel="apple-touch-icon" href="images/icon-192.png">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <link rel="stylesheet" href="css/pwa.css">
 
 </head>
 
 <body>
 
+<!-- ==========================
+     INSTALL APP
+========================== -->
 
 <div id="install-banner">
 
@@ -55,9 +76,9 @@
 
 </div>
 
-<!-- ===========================
-        HEADER
-=========================== -->
+<!-- ==========================
+     HEADER
+========================== -->
 
 <header id="header">
 
@@ -69,22 +90,24 @@
 
 </header>
 
-<!-- ===========================
-          HERO
-=========================== -->
+<!-- ==========================
+     HERO
+========================== -->
 
 <section class="hero">
-
-    <div class="overlay"></div>
 
     <div class="hero-content">
 
         <span class="league">
+
             WEDDING BASKETBALL ASSOCIATION
+
         </span>
 
         <div class="hero-date">
+
             24 LUGLIO 2026
+
         </div>
 
         <h1 class="hero-title">
@@ -103,9 +126,7 @@
 
         <button class="hero-button">
 
-            <span class="play">▶</span>
-
-            GUARDA IL TRAILER
+            ▶ GUARDA IL TRAILER
 
         </button>
 
@@ -113,9 +134,9 @@
 
 </section>
 
-<!-- ===========================
-        CATEGORIE
-=========================== -->
+<!-- ==========================
+     CATEGORIE
+========================== -->
 
 <section id="categories" class="categories">
 
@@ -123,13 +144,17 @@
 
 </section>
 
-<!-- ===========================
-        FOOTER
-=========================== -->
+<!-- ==========================
+     FOOTER
+========================== -->
 
 <footer class="footer">
 
-    <img src="images/logo.png" alt="WeddBA" class="footer-logo">
+    <img src="images/logo.png"
+
+         class="footer-logo"
+
+         alt="WeddBA">
 
     <div class="footer-text">
 
@@ -141,8 +166,15 @@
 
 </footer>
 
+<!-- ==========================
+     SCRIPT
+========================== -->
+
 <script src="data.js"></script>
+
 <script src="script.js"></script>
+
+<script src="install.js"></script>
 
 <script>
 
@@ -150,30 +182,29 @@ window.addEventListener("load",()=>{
 
     const target=sessionStorage.getItem("returnTo");
 
-    if(!target) return;
+    if(target){
 
-    setTimeout(()=>{
+        setTimeout(()=>{
 
-        const card=document.getElementById(target);
+            const card=document.getElementById(target);
 
-        if(card){
+            if(card){
 
-            card.scrollIntoView({
+                card.scrollIntoView({
 
-                behavior:"smooth",
-                block:"center"
+                    behavior:"smooth",
 
-            });
+                    block:"center"
 
-        }
+                });
 
-    },200);
+            }
+
+        },200);
+
+    }
 
 });
-
-</script>
-
-<script>
 
 document.querySelector(".hero-button").addEventListener("click",()=>{
 
@@ -181,39 +212,21 @@ document.querySelector(".hero-button").addEventListener("click",()=>{
 
 });
 
-</script>
-
-<script>
-
-if("serviceWorker" in navigator){
-
-    window.addEventListener("load",()=>{
-
-        navigator.serviceWorker.register("sw.js");
-
-    });
-
-}
-
-</script>
-
-<script>
-
 if("serviceWorker" in navigator){
 
     window.addEventListener("load",()=>{
 
         navigator.serviceWorker.register("./sw.js")
+
         .then(()=>console.log("🏀 WeddBA Ready"))
-        .catch(err=>console.log(err));
+
+        .catch(console.error);
 
     });
 
 }
 
 </script>
-
-<script src="install.js"></script>
 
 </body>
 
