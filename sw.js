@@ -1,4 +1,4 @@
-const CACHE = "weddba-v1.0.3";
+const CACHE = "weddba-v1.0.4";
 
 const FILES = [
 
