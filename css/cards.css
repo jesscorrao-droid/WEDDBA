@@ -230,3 +230,34 @@
     border:3px solid var(--gold);
 
 }
+
+/* ==========================================
+   FOCUS TV / TASTIERA
+========================================== */
+
+.category{
+
+    position:relative;
+    transition:.3s;
+
+}
+
+.category.focused{
+
+    transform:scale(1.05);
+    z-index:50;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 0 0 5px #f6b21a,
+        0 0 40px rgba(246,178,26,.6);
+
+}
+
+.category.focused .play-icon{
+
+    background:#f6b21a;
+    color:#071224;
+
+}
