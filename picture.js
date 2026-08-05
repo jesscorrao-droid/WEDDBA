@@ -136,24 +136,45 @@ prevBtn.addEventListener("click", prevPhoto);
 
 document.addEventListener("keydown", (e)=>{
 
-    if(!lightbox.classList.contains("open")) return;
-
     switch(e.key){
 
         case "ArrowRight":
-            e.preventDefault();
-            nextPhoto();
-            break;
+
+            if(lightbox.classList.contains("open")){
+
+                e.preventDefault();
+                nextPhoto();
+
+            }
+
+        break;
 
         case "ArrowLeft":
-            e.preventDefault();
-            prevPhoto();
-            break;
+
+            if(lightbox.classList.contains("open")){
+
+                e.preventDefault();
+                prevPhoto();
+
+            }
+
+        break;
 
         case "Escape":
+
             e.preventDefault();
-            closeLightbox();
-            break;
+
+            if(lightbox.classList.contains("open")){
+
+                closeLightbox();
+
+            }else{
+
+                window.location.href = "index.html";
+
+            }
+
+        break;
 
     }
 
@@ -186,3 +207,9 @@ lightbox.addEventListener("touchend", (e)=>{
     }
 
 });
+
+/* =========================================
+   READY
+========================================= */
+
+console.log("🏀 Picture Of The Game Ready");
