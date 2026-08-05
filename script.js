@@ -9,15 +9,23 @@ const isTouchDevice =
     ("ontouchstart" in window) ||
     navigator.maxTouchPoints > 0;
 
+// ===============================
+// INIZIALIZZA
+// ===============================
+
 function initKeyboardNavigation(){
 
     if(isTouchDevice) return;
 
-    cards = [...document.querySelectorAll(".category")];
+    cards = [
+        ...document.querySelectorAll(
+            ".category, .album-card, .photo"
+        )
+    ];
 
     if(!cards.length) return;
 
-    cards.forEach(card => card.classList.remove("focused"));
+    cards.forEach(card=>card.classList.remove("focused"));
 
     const saved = sessionStorage.getItem("returnTo");
 
@@ -25,11 +33,11 @@ function initKeyboardNavigation(){
 
     if(saved){
 
-        const index = cards.findIndex(card => card.id === saved);
+        const index = cards.findIndex(card=>card.id===saved);
 
-        if(index >= 0){
+        if(index>=0){
 
-            current = index;
+            current=index;
 
         }
 
@@ -39,17 +47,23 @@ function initKeyboardNavigation(){
 
 }
 
+// ===============================
+// AGGIORNA FOCUS
+// ===============================
+
 function updateFocus(){
 
     if(isTouchDevice) return;
 
-    cards.forEach(card => card.classList.remove("focused"));
+    cards.forEach(card=>card.classList.remove("focused"));
 
-    if(!cards[current]) return;
+    const card = cards[current];
 
-    cards[current].classList.add("focused");
+    if(!card) return;
 
-    cards[current].scrollIntoView({
+    card.classList.add("focused");
+
+    card.scrollIntoView({
 
         behavior:"smooth",
         block:"center",
@@ -59,7 +73,11 @@ function updateFocus(){
 
 }
 
-document.addEventListener("keydown", e => {
+// ===============================
+// TASTIERA / SMART TV
+// ===============================
+
+document.addEventListener("keydown",e=>{
 
     if(isTouchDevice) return;
 
@@ -75,7 +93,7 @@ document.addEventListener("keydown", e => {
 
             e.preventDefault();
 
-            if(current < cards.length - 1){
+            if(current < cards.length-1){
 
                 current++;
                 updateFocus();
@@ -88,7 +106,7 @@ document.addEventListener("keydown", e => {
 
             e.preventDefault();
 
-            if(current > 0){
+            if(current>0){
 
                 current--;
                 updateFocus();
@@ -101,7 +119,7 @@ document.addEventListener("keydown", e => {
 
             e.preventDefault();
 
-            if(current + columns < cards.length){
+            if(current+columns < cards.length){
 
                 current += columns;
                 updateFocus();
@@ -114,7 +132,7 @@ document.addEventListener("keydown", e => {
 
             e.preventDefault();
 
-            if(current - columns >= 0){
+            if(current-columns >= 0){
 
                 current -= columns;
                 updateFocus();
@@ -127,15 +145,13 @@ document.addEventListener("keydown", e => {
 
             e.preventDefault();
 
-            if(cards[current]){
-
-                cards[current].click();
-
-            }
+            cards[current].click();
 
         break;
 
         case "Escape":
+
+            e.preventDefault();
 
             history.back();
 
@@ -145,44 +161,47 @@ document.addEventListener("keydown", e => {
 
 });
 
-window.addEventListener("load", () => {
+// ===============================
+// LOAD
+// ===============================
+
+window.addEventListener("load",()=>{
 
     initKeyboardNavigation();
 
 });
 
 // ===============================
-// AGGIORNA IL FOCUS SOLO SU DESKTOP
+// RESIZE
 // ===============================
 
-window.addEventListener("resize", () => {
+window.addEventListener("resize",()=>{
 
-    if(!isTouchDevice){
+    if(isTouchDevice) return;
 
-        updateFocus();
-
-    }
+    updateFocus();
 
 });
 
 // ===============================
-// CLICK SULLA CARD
+// CLICK
 // ===============================
 
-document.addEventListener("click", e => {
+document.addEventListener("click",e=>{
 
     if(isTouchDevice) return;
 
-    const card = e.target.closest(".category");
+    const card = e.target.closest(
+        ".category, .album-card, .photo"
+    );
 
     if(!card) return;
 
     const index = cards.indexOf(card);
 
-    if(index !== -1){
+    if(index!==-1){
 
-        current = index;
-
+        current=index;
         updateFocus();
 
     }

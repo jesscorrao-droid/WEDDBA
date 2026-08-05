@@ -261,3 +261,51 @@
     color:#071224;
 
 }
+
+/* =====================================================
+   GLOBAL FOCUS (TV / TASTIERA)
+===================================================== */
+
+.category,
+.album-card,
+.photo{
+
+    position:relative;
+    transition:.3s;
+
+}
+
+.category.focused,
+.album-card.focused,
+.photo.focused{
+
+    transform:scale(1.05);
+
+    z-index:100;
+
+    border-radius:20px;
+
+    box-shadow:
+        0 0 0 5px #f6b21a,
+        0 0 45px rgba(246,178,26,.65);
+
+}
+
+/* Effetto immagine */
+
+.category.focused img,
+.album-card.focused img,
+.photo.focused img{
+
+    transform:scale(1.05);
+
+}
+
+/* Play button */
+
+.category.focused .play-icon{
+
+    background:#f6b21a;
+    color:#071224;
+
+}
